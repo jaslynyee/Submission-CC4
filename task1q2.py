@@ -18,6 +18,7 @@ for restaurant in data:
                     end_date = event_info['end_date']
                     if '2019-04-01' <= start_date <= '2019-04-30':
                         # Collect all photo URLs and populate empty values (ie. no photos) with "NA"
+                        # For events with more than 1 photo_urls, this creates a list of all photo_urls for that event
                         photo_urls = [photo['photo']['url'] for photo in event_info['photos']] if event_info['photos'] else ["NA"]
                         filtered_events.append([
                             event_info['event_id'],
@@ -29,10 +30,10 @@ for restaurant in data:
                             end_date
                         ])
 
-# Convert to pandas dataframe
+# Convert to pandas dataframe and define column names
 restaurant_events = pd.DataFrame(filtered_events, columns=['Event Id', 'Restaurant Id', 'Restaurant Name', 'Photo URLs', 'Event Title', 'Event Start Date', 'Event End Date'])
 
-# Convert 'Photo URLs' column to a string to enable CSV export without issues
+# Convert 'Photo URLs' column to a string
 restaurant_events['Photo URLs'] = restaurant_events['Photo URLs'].apply(lambda urls: '; '.join(urls) if isinstance(urls, list) else urls)
 
 # Export as CSV file
