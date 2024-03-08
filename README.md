@@ -12,5 +12,6 @@ Instructions on how to run the source codes locally:
 
 Python files to run:
 - Question 1: task1q1.py -> command: "python3 task1q1.py"
+  - Question 1 contains a unit test python script: task1q1_unittest.py -> command: "python3 -m unittest task1q1_unittest.py"
 - Question 2: task1q2.py -> command: "python3 task1q2.py"
 - Question 3: task1q3.py -> command: "python3 task1q3.py"
