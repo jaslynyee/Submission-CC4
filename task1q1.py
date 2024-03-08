@@ -2,26 +2,14 @@ import json
 import csv
 import pandas as pd
 
-# Read the JSON data
-# json file was downloaded from https://raw.githubusercontent.com/Papagoat/brain-assessment/main/restaurant_data.json using terminal command: % curl https://raw.githubusercontent.com/Papagoat/brain-assessment/main/restaurant_data.json > restaurant_data.json
+# Read restaurant_data.json
+# restaurant_data.json was downloaded from https://raw.githubusercontent.com/Papagoat/brain-assessment/main/restaurant_data.json using terminal command: % curl https://raw.githubusercontent.com/Papagoat/brain-assessment/main/restaurant_data.json > restaurant_data.json
 with open('restaurant_data.json', 'r') as file:
     data = json.load(file)
 
-# (For illustration) Print out all the keys - showing all the columns, including those in nested dictionaries and lists.
-# def print_columns(data, prefix=''):
-#     if isinstance(data, dict):
-#         for k, v in data.items():
-#             current_prefix = f"{prefix}.{k}" if prefix else k
-#             print(current_prefix)
-#             print_columns(v, current_prefix)
-#     elif isinstance(data, list):
-#         for item in data:
-#             print_columns(item, prefix)
-# print_columns(data)
-
-# Open the CSV file for writing
+# Create csvfile 'restaurant_data_cleaned_q1.csv' to store the cleaned dataset
 with open('restaurant_data_cleaned_q1.csv', 'w', newline='', encoding='utf-8') as csvfile:
-    # Define the field names for the selected columns
+    # Define the column names
     selected_fieldnames = [
         'Restaurant Id',
         'Restaurant Name',
@@ -32,10 +20,10 @@ with open('restaurant_data_cleaned_q1.csv', 'w', newline='', encoding='utf-8') a
         'Cuisines'
     ]
 
-    # Create a CSV DictWriter object
+    # Initializes a DictWriter object to write dictionaries to csvfile using selected_fieldnames as column headers
     writer = csv.DictWriter(csvfile, fieldnames=selected_fieldnames)
     
-    # Write the header
+    # Writes the header row to csvfile based on those field names
     writer.writeheader()
     
     # Loop through each restaurant in all the data entries
@@ -71,7 +59,7 @@ countrycode = pd.read_excel("Country-Code.xlsx", sheet_name='Sheet1')
 # Rename Country column from restaurantdatacleaned to prevent column name duplicates
 restaurantdatacleaned = restaurantdatacleaned.rename(columns={'Country': 'Country_restaurants'})
 
-# Join Condition
+# Left Join Condition
 restaurants = restaurantdatacleaned.merge(countrycode, left_on='Country_restaurants', right_on='Country Code', how='left')
 
 # Check if join condition is correct - number of rows in joined table should equal the number of rows in left table
