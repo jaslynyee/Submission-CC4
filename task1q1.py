@@ -9,7 +9,7 @@ with open('restaurant_data.json', 'r') as file:
 
 # Create csvfile 'restaurant_data_cleaned_q1.csv' to store the cleaned dataset
 with open('restaurant_data_cleaned_q1.csv', 'w', newline='', encoding='utf-8') as csvfile:
-    # Define the column names
+    # Define the column names for the output csvfile
     selected_fieldnames = [
         'Restaurant Id',
         'Restaurant Name',
@@ -31,7 +31,7 @@ with open('restaurant_data_cleaned_q1.csv', 'w', newline='', encoding='utf-8') a
         for restaurant_entry in data_entry['restaurants']:
             restaurant = restaurant_entry['restaurant']
             
-            # Prepare the data to write based on selected columns
+            # Select required columns
             row_data = {
                 'Restaurant Id': restaurant.get('id'),
                 'Restaurant Name': restaurant.get('name'),
