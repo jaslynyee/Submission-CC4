@@ -52,7 +52,7 @@ with open('restaurant_data_cleaned_q1.csv', 'w', newline='', encoding='utf-8') a
             writer.writerow(row_data)
 
 
-# Read both restaurant_data_cleaned_q1.csv and Country-Code.xlsx
+# Read both 'restaurant_data_cleaned_q1.csv' and 'Country-Code.xlsx'
 restaurantdatacleaned = pd.read_csv("restaurant_data_cleaned_q1.csv")
 countrycode = pd.read_excel("Country-Code.xlsx", sheet_name='Sheet1')
 
