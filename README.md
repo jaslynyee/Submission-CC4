@@ -2,7 +2,9 @@
 
 This repository contains all the datasets and python source codes for Internship 2024's take-home assignment.
 
+
 TASK 1 ------------------------------------------------------------------
+
 Instructions on how to run the source codes locally:
 1. Clone this repository using the web URL (or by downloading the zip file).
 2. Using Visual Studio Code, paste the web URL (or by opening the downloaded zip file).
