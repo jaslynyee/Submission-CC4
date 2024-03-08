@@ -30,7 +30,7 @@ for restaurant in data:
                             end_date
                         ])
 
-# Convert to pandas dataframe and define column names
+# Convert to pandas DataFrame and Define column names
 restaurant_events = pd.DataFrame(filtered_events, columns=['Event Id', 'Restaurant Id', 'Restaurant Name', 'Photo URLs', 'Event Title', 'Event Start Date', 'Event End Date'])
 
 # Convert 'Photo URLs' column to a string
