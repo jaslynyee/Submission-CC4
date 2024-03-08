@@ -2,7 +2,7 @@ import json
 import csv
 import pandas as pd
 
-# Read restaurant_data.json
+# Read 'restaurant_data.json'
 # restaurant_data.json was downloaded from https://raw.githubusercontent.com/Papagoat/brain-assessment/main/restaurant_data.json using terminal command: % curl https://raw.githubusercontent.com/Papagoat/brain-assessment/main/restaurant_data.json > restaurant_data.json
 with open('restaurant_data.json', 'r') as file:
     data = json.load(file)
