@@ -1,3 +1,7 @@
+# Upon running this python script (python3 task1q3.py), there will be no final output file,
+# but the thresholds for Task 1 Question 3 will be printed in the terminal.
+
+# Import libraries
 import json
 import pandas as pd
 
