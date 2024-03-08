@@ -7,7 +7,7 @@ TASK 1 ------------------------------------------------------------------
 
 Instructions on how to run the python scripts locally:
 1. Clone this repository using the web URL (or by downloading the zip folder).
-2. Using Visual Studio Code, paste the web URL (or by opening the downloaded zip folder). This will open the files in Visual Studio Code.
+2. Using Visual Studio Code, paste the web URL (or by opening the downloaded zip folder). This will open the files in VSCode.
 3. To run the python scripts for Task 1, type the following commands into the terminal in VSCode (Note: python3 and pandas must be installed).
 
 Python scripts to run:
