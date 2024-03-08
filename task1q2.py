@@ -1,3 +1,6 @@
+# Upon running this python script (python3 task1q2.py), there will be a final output file (restaurant_events.csv) which contains the extracted data for Task 1 Question 2.
+
+# Import libraries
 import json
 import pandas as pd
 
@@ -30,7 +33,7 @@ for restaurant in data:
                             end_date
                         ])
 
-# Convert to pandas DataFrame and Define column names
+# Convert to a DataFrame and Define column names
 restaurant_events = pd.DataFrame(filtered_events, columns=['Event Id', 'Restaurant Id', 'Restaurant Name', 'Photo URLs', 'Event Title', 'Event Start Date', 'Event End Date'])
 
 # Convert 'Photo URLs' column to a string
