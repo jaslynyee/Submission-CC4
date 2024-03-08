@@ -1,5 +1,5 @@
-# Upon running this python script (python3 task1q1.py), there will be a final output file (restaurants.csv) which contains the extracted data for Task 1 Question 1.
-# For the join condition to get Country, the shapes of the left table and joined table are printed in the terminal to check that the join condition is correct (number of rows should be equal).
+# Upon running this python script (command: python3 task1q1.py), there will be a final output file (restaurants.csv) which contains the extracted data for Task 1 Question 1.
+# For unit test, refer to the python script "task1q1_unittest.py".
 
 # Import libraries
 import json
@@ -47,12 +47,13 @@ country_code = pd.read_excel("Country-Code.xlsx", sheet_name='Sheet1')
 # Rename Country column from restaurant_data_cleaned to prevent column name duplicates
 restaurant_data_cleaned = restaurant_data_cleaned.rename(columns={'Country': 'Country_restaurants'})
 
-# Left Join Condition
-restaurants = restaurant_data_cleaned.merge(country_code, left_on='Country_restaurants', right_on='Country Code', how='left')
+# Define a function for unit testing: to test if the number of rows in the left DataFrame equals to the number of rows in the joined DataFrame
+def join_restaurant_and_country(restaurant_df, country_df):
+    joined_df = restaurant_df.merge(country_df, left_on='Country_restaurants', right_on='Country Code', how='left')
+    return joined_df
 
-# Ensure the join condition is correct by comparing shapes (number of rows) of both tables
-print(f"Shape of left table (restaurant_data_cleaned) is: {restaurant_data_cleaned.shape}")
-print(f"Shape of joined table (restaurants) is: {restaurants.shape}")
+# Left Join Condition
+restaurants = join_restaurant_and_country(restaurant_data_cleaned, country_code)
 
 # Clean the columns for the desired output
 restaurants = restaurants.drop(['Country_restaurants', 'Country Code'], axis=1)
