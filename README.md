@@ -35,7 +35,7 @@ Data Flow:
 - Workflow for Updating Parking Availability and Sending Notifications:
   - Updates regarding parking availability are sent through a request to API Gateway #2, which is then managed by the Lambda: Status Updater.
   - Lambda Status Updater: This function updates the parking availability status and logs the time of update in the DynamoDB: Garage Status Table.
-  - Lambda Reservation Validator: Before the parking status is officially updated, this function confirms reservations by checking the DynamoDB: Reservations Table.
+  - Lambda Reservation Validator: Validates reservations against the DynamoDB: Reservations Table before the parking status is updated in the DynamoDB: Garage Status Table.
   - Changes in the status table set off a DynamoDB Stream, which in turn triggers the Lambda: Notification Sender.
   - Lambda Notification Sender: This function fetches details from the DynamoDB: User Info Table and disseminates notifications from the mobile application.
 
