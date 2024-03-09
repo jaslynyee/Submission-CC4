@@ -41,8 +41,6 @@ Data Flow:
 
 2. A database schema that depicts the tables
 
-![Database Schema](https://github.com/jaslynyee/GovTech-CC4/assets/91607032/0d5357d5-290e-45a1-a697-f64cd8a11e63)
-
-3. An API document that provides the information of the APIs required
+![Database Schema](https://github.com/jaslynyee/GovTech-CC4/assets/91607032/747f722b-3830-4eaf-93d8-7a9f1b36805c)
 
 
