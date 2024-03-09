@@ -19,7 +19,7 @@ Python scripts to run:
 
 TASK 2 ------------------------------------------------------------------
 
-1. Architecture Diagram of the infrastructures required to host the API & System Design Diagram that provides logical flow of the carpark availability API
+1. An Architecture Diagram of the infrastructures required to host the API & System Design Diagram that provides logical flow of the carpark availability API
    
 ![Architecture Diagram](https://github.com/jaslynyee/GovTech-CC4/assets/91607032/5f5687b9-6ffe-4430-a9d1-1847c82b1a46)
 
@@ -39,7 +39,7 @@ Data Flow:
   - Changes in the status table set off a DynamoDB Stream, which in turn triggers the Lambda: Notification Sender.
   - Lambda Notification Sender: This function fetches details from the DynamoDB: User Info Table and disseminates notifications from the mobile application.
 
-2. A database schema that depicts the tables
+2. A Database Schema that depicts the tables
 
 ![Database Schema](https://github.com/jaslynyee/GovTech-CC4/assets/91607032/747f722b-3830-4eaf-93d8-7a9f1b36805c)
 
