@@ -28,7 +28,7 @@ Data Flow:
   - Interaction with a static website enables users to view or book a parking lot.
   - The website sends requests to API Gateway #1 for parking lot reservations, which routes these to the appropriate Lambda functions for processing.
   - Lambda Subscription Manager: This function is responsible for handling user subscriptions and updating user-related information within the DynamoDB: User Info Table.
-  - Lambda Reservation Processor: This function deals with reservation requests. It communicates with a payment gateway to handle the deposit and records the reservation details in the DynamoDB: Reservations Table once the payment is completed.
+  - Lambda Reservation Processor: This function deals with reservation requests. It communicates with a payment gateway to handle the parking deposit and records the reservation details in the DynamoDB: Reservations Table once the payment is completed.
   - Payment Gateway: This is an integrated external system working with the Lambda Reservation Processor to manage financial transactions. The Lambda function makes an API call to the external Payment Gateway with the necessary payment information for processing. The payment gateway sends a response back to the Lambda function, indicating whether the payment was successful or if there was an error.
   - Location Gateway: This is an integrated external system working with the Lambda Reservation Processor to manage the user's location or input location. The API Gateway routes the request to the appropriate location service, which is designed to interact with the user's device to obtain the current GPS coordinates or their desired input location. This involve calling a GPS Location Gateway that the device's operating system provides.
   
