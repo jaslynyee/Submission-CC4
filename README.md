@@ -18,4 +18,29 @@ Python scripts to run:
 
 
 TASK 2 ------------------------------------------------------------------
-![Screenshot 2024-03-09 at 8 54 01 PM](https://github.com/jaslynyee/GovTech-CC4/assets/91607032/3f46eea2-be18-4540-b6f5-3b397b332c91)
+
+1. Architecture Diagram of the infrastructures required to host the API & System Design Diagram that provides logical flow of the carpark availability API
+   
+![Architecture Diagram](https://github.com/jaslynyee/GovTech-CC4/assets/91607032/9aecb7d8-eaae-4a49-8e2b-b136cf618c57)
+
+Data Flow:
+- Process for Managing User Subscriptions and Reservations:
+  - Interaction with a static website enables users to view or book a parking lot.
+  - The website sends requests to API Gateway #1 for parking lot reservations, which routes these to the appropriate Lambda functions for processing.
+  - Lambda Subscription Manager: This function is responsible for handling user subscriptions and updating user-related information within the DynamoDB: User Info Table.
+  - Lambda Reservation Processor: This function deals with reservation requests. It communicates with a payment gateway to handle the deposit and records the reservation details in the DynamoDB: Reservations Table once the payment is completed.
+  - Payment Gateway: This is an integrated external system working with the Lambda Reservation Processor to manage financial transactions.
+  - Location Gateway: This is an integrated external system working with the Lambda Reservation Processor to manage the user's location or input location.
+  
+- Workflow for Updating Parking Availability and Sending Notifications:
+  - Updates regarding parking availability are sent through a request to API Gateway #2, which is then managed by the Lambda: Status Updater.
+  - Lambda Status Updater: This function updates the parking availability status and logs the time of update in the DynamoDB: Garage Status Table.
+  - Lambda Reservation Validator: Before the parking status is officially updated, this function confirms reservations by checking the DynamoDB: Reservations Table.
+  - Changes in the status table set off a DynamoDB Stream, which in turn triggers the Lambda: Notification Sender.
+  - Lambda Notification Sender: This function fetches details from the DynamoDB: User Info Table and disseminates notifications from the mobile application.
+
+2. A database schema that depicts the tables
+
+3. An API document that provides the information of the APIs required
+
+
