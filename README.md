@@ -1,6 +1,6 @@
 # Internship Submission CC4
 
-This repository contains all the datasets and python scripts for Internship 2024's take-home assignment.
+This repository contains all the datasets, python scripts and documentations for Internship 2024's take-home assignment.
 
 
 TASK 1 ------------------------------------------------------------------
