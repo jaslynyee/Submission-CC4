@@ -43,4 +43,45 @@ Data Flow:
 
 ![Database Schema](https://github.com/jaslynyee/GovTech-CC4/assets/91607032/747f722b-3830-4eaf-93d8-7a9f1b36805c)
 
+3. An API document that provides the information of the API/s required
 
+API Gateway #1
+- Location Search
+  - Endpoint: /search-location
+  - Method: GET
+  - Description: Retrieves a list of available parking locations based on user query.
+  - Parameters:
+    - query: string, user's search term
+  - Response: A list of parking locations with details such as name, address, and availability.
+
+- Parking Reservation
+  - Endpoint: /reserve-parking
+  - Method: POST
+  - Description: Allows users to reserve a parking space.
+  - Request Body:
+    - user_id: string, the ID of the user making the reservation
+    - car_park_no: string, the ID of the parking location
+    - reservation_datetime: object, containing the start and end times for the reservation
+  - Response: Confirmation of the reservation with a reservation ID.
+  
+- Subscription Management
+  - Endpoint: /manage-subscription
+  - Method: POST
+  - Description: Allows users to subscribe or unsubscribe from parking services.
+  - Request Body:
+    - user_id: string, the ID of the user
+    - is_subscribed: string, "subscribe" or "unsubscribe"
+  - Response: Confirmation of subscription status.
+
+API Gateway #2
+- Garage Status Update
+  - Endpoint: /update-garage-status
+  - Method: POST
+  - Description: Endpoint for parking lot systems to update the current status of the garage.
+  - Request Body:
+    - carpark_number: string, the ID of the garage
+    - lots_available: string, the current status of available lots in the garage
+  - Response: Acknowledgment of status update.
+
+Error Handling
+- Errors will be returned in the standard HTTP response format with an appropriate status code and a descriptive message.
