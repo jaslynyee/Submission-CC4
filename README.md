@@ -1,4 +1,4 @@
-# GovTech-CC4
+# Internship Submission CC4
 
 This repository contains all the datasets and python scripts for Internship 2024's take-home assignment.
 
