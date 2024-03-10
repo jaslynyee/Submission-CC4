@@ -50,8 +50,8 @@ API Gateway #1
   - Endpoint: /search-location
   - Method: GET
   - Description: Retrieves a list of available parking locations based on user query.
-  - Parameters:
-    - query: string, user's search term
+  - Request Body:
+    - location_input: string, user's search term
   - Response: A list of parking locations with details such as name, address, and availability.
 
 - Parking Reservation
